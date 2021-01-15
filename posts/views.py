@@ -10,7 +10,7 @@ from .serializers import PostSerializer, CommentSerializer
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     def list(self, request, post_id=None):
         queryset = Post.objects.filter(post=post_id)
         serializer = PostSerializer(queryset, many=True)
@@ -55,8 +55,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated,
-                      IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     def list(self, request, post_id=None):
         queryset = Comment.objects.filter(post=post_id)
         serializer = CommentSerializer(queryset, many=True)
