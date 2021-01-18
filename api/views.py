@@ -32,6 +32,6 @@ class APICommentViewSet(viewsets.ModelViewSet):
 
     def list(self, request, post_pk):
         if Comment.objects.filter(post=post_pk).exists():
-        comments = Comment.objects.filter(post=post_pk) 
+            comments = Comment.objects.filter(post=post_pk) 
         serializer = CommentSerializer(comments, many=True) 
         return Response(serializer.data)
