@@ -31,6 +31,6 @@ class APICommentViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
     def get_queryset(self):
-            return Foo.objects.filter(user=self.request.user) #comments = Comment.objects.filter(post=post_pk)
-        serializer = CommentSerializer #(comments, many=True)
+        comments = Comment.objects.filter(post=post_pk)
+        serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
