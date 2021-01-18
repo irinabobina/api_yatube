@@ -36,6 +36,6 @@ class APICommentViewSet(viewsets.ModelViewSet):
         #serializer = CommentSerializer(comments, many=True) 
         #return Response(serializer.data)
 
-    def get_queryset(self, post_pk):
-        post = get_object_or_404(Post, id = post_pk) #self.kwargs.get('post_pk')
+    def get_queryset(self):
+        post = get_object_or_404(Post, id = self.kwargs.get('post_pk'))
         return post.comments
