@@ -31,6 +31,5 @@ class APICommentViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
     def get_queryset(self):
-        post = get_object_or_404(Post, id = self.kwargs.get('post_pk'))
+        post = get_object_or_404(Post, id=self.kwargs.get('post_pk'))
         return post.comments
-
