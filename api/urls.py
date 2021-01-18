@@ -7,7 +7,7 @@ from .views import APIPostViewSet, APICommentViewSet
 
 router = DefaultRouter()
 router.register('posts', APIPostViewSet)
-router.register(r'posts/(?P<post_pk>\d+)/comments', APICommentViewSet, 
+router.register(r'posts/(?P<post_pk>\d+)/comments', APICommentViewSet,
                 basename='comments')
 
 urlpatterns = [
