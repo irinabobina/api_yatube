@@ -3,7 +3,7 @@ from posts.models import Post, Comment
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(source="author.username", 
+    author = serializers.StringRelatedField(source="author.username",
                                             read_only=True)
 
     class Meta:
@@ -12,7 +12,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(source="author.username", 
+    author = serializers.StringRelatedField(source="author.username",
                                             read_only=True)
 
     class Meta:
