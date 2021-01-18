@@ -12,7 +12,7 @@ router.register('posts', APIPostViewSet)
 router.register(r'posts/(?P<post_pk>\d+)/comments', APICommentViewSet, basename='comments')
 
 urlpatterns = [
-    path('', include("posts.urls")),
+    path('', include(posts.urls)),
     path('v1/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token)
 ]
