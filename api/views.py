@@ -19,12 +19,9 @@ class APIPostViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user) 
 
     def perform_update(self, serializer): 
-        serializer.save(author=self.request.user) 
- 
-    def perform_destroy(self, serializer): 
-        serializer.delete() 
- 
- 
+        serializer.save() 
+
+
 class APICommentViewSet(viewsets.ModelViewSet): 
     queryset = Comment.objects.all() 
     serializer_class = CommentSerializer 
